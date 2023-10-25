@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { AccountUseCases } from "@domain/accounts";
 
-export default function useAccount() {
+export default function useAccount(props?: any) {
   const useCase = new AccountUseCases();
   const [accounts, setAccounts] = useState<any>([]);
 

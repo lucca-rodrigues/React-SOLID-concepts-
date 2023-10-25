@@ -5,3 +5,9 @@ export interface IAccountUseCases {
   update(): any;
   delete(): any;
 }
+
+export type TAccount = {
+  id: number;
+  name: string;
+  email: string;
+};

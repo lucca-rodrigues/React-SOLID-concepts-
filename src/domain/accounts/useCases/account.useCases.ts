@@ -2,7 +2,7 @@ import HttpClient from "@infra/httpRequest";
 import { IAccountUseCases } from "@domain/accounts/models";
 
 export default class AccountUseCases implements IAccountUseCases {
-  private baseUrl = process.env.API_URL ?? "";
+  private baseUrl = process.env.API_URL ?? "http://localhost:3333/api";
 
   async get() {
     const service = new HttpClient(this.baseUrl);

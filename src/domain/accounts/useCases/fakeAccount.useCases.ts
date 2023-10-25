@@ -1,14 +1,24 @@
 import { IAccountUseCases } from "@domain/accounts/models";
-import HttpClient from "@infra/httpRequest";
 
 export default class FakeAccountUseCases implements IAccountUseCases {
-  private baseUrl = process.env.FAKE_API_URL ?? "";
+  private dbContext(account?: any) {
+    const dbMemmory = [
+      {
+        id: 1,
+        name: "Cristiane Juliana da Costa",
+        email: "cristiane_juliana_dacosta@tintasvalecores.com.br",
+      },
+      {
+        id: 4,
+        name: "Thales Luís André Pinto",
+        email: "tharles_luiz@lojapetline.com.br",
+      },
+    ];
+    return dbMemmory;
+  }
 
   async get() {
-    const service = new HttpClient(this.baseUrl);
-    const response = await service.get("/");
-
-    return response?.data?.accounts ?? [];
+    return this.dbContext();
   }
 
   post() {

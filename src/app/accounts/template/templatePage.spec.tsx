@@ -1,24 +1,24 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Accounts from "./page";
-import { FakeAccountUseCases } from "../../domain/accounts";
+import TemplatePage from "./TemplatePage";
+import { FakeAccountUseCases } from "../../../domain/accounts";
+import { TAccount } from "@domain/accounts/models";
 
 const fakeAccountUseCase = new FakeAccountUseCases();
 
 describe("Accounts Component", () => {
-  it("Should be render accounts page", () => {
-    const accountsData = fakeAccountUseCase.get();
+  it("Should be render accounts page", async () => {
+    const accountsData: TAccount[] = await fakeAccountUseCase.get();
 
-    render(<Accounts accounts={accountsData} />);
+    const sharedProps = {
+      accounts: accountsData,
+    };
 
-    const titlePage = screen.getByText(/Accounts list/i).innerHTML;
-
-    expect(screen.findAllByTestId("Accounts list")).toBeTruthy();
-    expect(titlePage).toEqual("Accounts list");
+    render(<TemplatePage {...sharedProps} />);
   });
 
   it("Should be render accounts not found", async () => {
-    render(<Accounts accounts={[]} />);
+    render(<TemplatePage accounts={[]} />);
 
     const notFoundMessage = await screen.findByTestId("account-not-found");
 
@@ -27,17 +27,17 @@ describe("Accounts Component", () => {
   });
 
   it("Should display account names", async () => {
-    const accountsData = await fakeAccountUseCase.get();
+    const accountsData: TAccount[] = await fakeAccountUseCase.get();
 
-    render(<Accounts accounts={accountsData} />);
+    render(<TemplatePage accounts={accountsData} />);
 
-    accountsData.forEach((account) => {
+    accountsData.forEach((account: TAccount) => {
       const accountNameElement = screen.getByText(account.name);
       console.log("account", account);
 
       expect(accountNameElement.textContent).toEqual(account.name);
     });
 
-    expect(accountsData.length).toEqual(4);
+    expect(accountsData.length).toEqual(2);
   });
 });

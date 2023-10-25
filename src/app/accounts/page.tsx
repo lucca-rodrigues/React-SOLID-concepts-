@@ -1,21 +1,22 @@
 "use client";
 import React, { useEffect } from "react";
 import useAccount from "./hooks/useAccount";
-import AccountsList from "./components/accountsList";
+import TemplatePage from "./template/TemplatePage";
 
-export default function Accounts(props: any) {
+export default function Accounts() {
   const { getAccounts, accounts } = useAccount();
-
-  const accountsData = props?.accounts ?? accounts;
 
   useEffect(() => {
     getAccounts();
   }, []);
 
+  const sharedProps = {
+    accounts,
+  };
   return (
     <div>
       <h1>Accounts list</h1>
-      <AccountsList accounts={accountsData} />
+      <TemplatePage {...sharedProps} />
     </div>
   );
 }
