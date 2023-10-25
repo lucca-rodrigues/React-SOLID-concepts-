@@ -32,5 +32,14 @@ describe("Fake account useCases", () => {
       expect(accountData.email).toEqual(account.email);
     }
   });
-  // it("Should be delete account", () => {});
+  it("Should be delete account", () => {
+    const accountId = 3;
+    const accountsData: TAccount[] = fakeAccountUseCase.delete(accountId);
+
+    console.log("accountsData", accountsData);
+    expect(accountsData.length).toEqual(2);
+    expect(accountsData[3]).toBeFalsy();
+
+    expect(accountsData).not.toContain(accountId);
+  });
 });
