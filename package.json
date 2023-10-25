@@ -1,0 +1,48 @@
+{
+  "name": "next-solid",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:clear": "jest --clearCache",
+    "test:cypress": "cypress open",
+    "start:api": "json-server --watch src/infra/fakeApi/db.json --port 3333",
+    "commit": "npx git-cz"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-do-expressions": "^7.22.5",
+    "axios": "^1.5.1",
+    "git-cz": "^4.9.0",
+    "json-server": "^0.17.4",
+    "next": "^13.5.6",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "commitizen": "^4.3.0",
+    "cypress": "^13.3.2",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.6",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "react-test-renderer": "^18.2.0",
+    "typescript": "^5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run commit"
+    }
+  }
+}
