@@ -2,9 +2,10 @@ import HttpClient from "@infra/httpRequest";
 import { IAccountUseCases } from "@domain/accounts/models";
 
 export default class AccountUseCases implements IAccountUseCases {
+  private baseUrl = "http://localhost:3333/api";
+
   async get() {
-    const baseUrl = "http://localhost:3333/api";
-    const service = new HttpClient(baseUrl);
+    const service = new HttpClient(this.baseUrl);
     const response = await service.get("/");
 
     return response?.data?.accounts ?? [];

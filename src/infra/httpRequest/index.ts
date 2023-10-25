@@ -2,8 +2,6 @@ import axios from "axios";
 
 import { HttpRequestParams } from "./contracts";
 
-// const baseUrl = "http://localhost:3333/api";
-
 export default class HttpClient {
   constructor(private readonly baseUrl: string) {}
   // async get(params?: HttpRequestParams): Promise<any> {

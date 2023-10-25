@@ -92,12 +92,13 @@ describe("Accounts Component", () => {
   });
 
   it("Should display account names", async () => {
-    const accountsData = fakeAccountUseCase.get();
+    const accountsData = await fakeAccountUseCase.get();
 
     render(<Accounts accounts={accountsData} />);
 
     accountsData.forEach((account) => {
       const accountNameElement = screen.getByText(account.name);
+      console.log("account", account);
 
       expect(accountNameElement.textContent).toEqual(account.name);
     });

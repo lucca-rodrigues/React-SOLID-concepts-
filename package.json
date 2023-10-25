@@ -12,6 +12,7 @@
     "test:clear": "jest --clearCache",
     "test:cypress": "cypress open",
     "start:api": "json-server --watch src/infra/fakeApi/db.json --port 3333",
+    "start:fakeApi": "json-server --watch src/infra/fakeApi/db.json --port 4444",
     "commit": "npx git-cz"
   },
   "dependencies": {
