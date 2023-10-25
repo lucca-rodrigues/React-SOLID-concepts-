@@ -37,5 +37,7 @@ describe("Accounts Component", () => {
 
       expect(accountNameElement.textContent).toEqual(account.name);
     });
+
+    expect(accountsData.length).toEqual(4);
   });
 });

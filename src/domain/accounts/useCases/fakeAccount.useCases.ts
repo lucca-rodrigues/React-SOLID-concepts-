@@ -11,11 +11,6 @@ export default class FakeAccountUseCases implements IAccountUseCases {
     return response?.data?.accounts ?? [];
   }
 
-  // post({ account }: any) {
-  //   // dbContext.push(account);
-  //   // return dbContext;
-  // }
-
   post() {
     throw new Error("Method not implemented.");
   }
@@ -27,6 +22,6 @@ export default class FakeAccountUseCases implements IAccountUseCases {
     throw new Error("Method not implemented.");
   }
   delete() {
-    return dbContext.pop();
+    throw new Error("Method not implemented.");
   }
 }
