@@ -26,7 +26,7 @@ export default class FakeAccountUseCases implements IAccountUseCases {
     return dbMemmory;
   }
 
-  update(accountId: number, account: TAccount): Promise<TAccount | null> {
+  update(accountId: number, account: TAccount): Promise<TAccount | string> {
     const selectedAccount = dbMemmory.find((account) => account.id === accountId);
     if (selectedAccount) {
       selectedAccount.name = account.name;
@@ -34,8 +34,9 @@ export default class FakeAccountUseCases implements IAccountUseCases {
 
       return Promise.resolve(selectedAccount);
     }
-    return Promise.resolve(null);
+    return "ID Not found";
   }
+
   delete(accountId: number) {
     const result = dbMemmory.filter((account) => account.id !== accountId);
     return result;

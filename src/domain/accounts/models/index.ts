@@ -2,7 +2,7 @@ export interface IAccountUseCases {
   get(): any;
   post(account: TAccount): TAccount[];
   // patch(): any;
-  update(accountId: number, account: TAccount): Promise<TAccount | null>;
+  update(accountId: number, account: TAccount): Promise<TAccount | string>;
   delete(accountId: number): any;
 }
 

@@ -24,19 +24,31 @@ describe("Fake account useCases", () => {
       name: "João silva prado",
       email: "joaosilva@email.com",
     };
-    const accountData: TAccount | null = await fakeAccountUseCase.update(accountId, account);
+    const accountData: TAccount | string = await fakeAccountUseCase.update(accountId, account);
 
-    expect(accountData).not.toBeNull();
-    if (accountData) {
-      expect(accountData.name).toEqual(account.name);
-      expect(accountData.email).toEqual(account.email);
+    if (typeof accountData === "string") {
+      throw new Error(accountData);
     }
+
+    expect(accountData.name).toEqual(account.name);
+    expect(accountData.email).toEqual(account.email);
   });
+
+  it("Should be not update account", async () => {
+    const accountId = 10;
+    const account: TAccount = {
+      name: "João silva prado",
+      email: "joaosilva@email.com",
+    };
+    const accountData: TAccount | string = await fakeAccountUseCase.update(accountId, account);
+
+    expect(accountData).toEqual("ID Not found");
+  });
+
   it("Should be delete account", () => {
     const accountId = 3;
     const accountsData: TAccount[] = fakeAccountUseCase.delete(accountId);
 
-    console.log("accountsData", accountsData);
     expect(accountsData.length).toEqual(2);
     expect(accountsData[3]).toBeFalsy();
 
