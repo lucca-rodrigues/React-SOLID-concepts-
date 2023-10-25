@@ -1,9 +1,9 @@
 export interface IAccountUseCases {
   get(): any;
-  post(): any;
+  post(account: TAccount): TAccount[];
   patch(): any;
-  update(): any;
-  delete(): any;
+  update(accountId: number, account: TAccount): any;
+  delete(accountId: number): any;
 }
 
 export type TAccount = {

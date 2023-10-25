@@ -5,7 +5,9 @@ export default function AccountsList({ accounts }: any) {
         {accounts?.length > 0 ? (
           <>
             {accounts?.map((item: any, key: number) => (
-              <li key={key}>{item?.name}</li>
+              <li key={key} data-testid="account-list-item">
+                {item?.name}
+              </li>
             ))}
           </>
         ) : (

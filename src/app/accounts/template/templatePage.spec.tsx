@@ -33,11 +33,8 @@ describe("Accounts Component", () => {
 
     accountsData.forEach((account: TAccount) => {
       const accountNameElement = screen.getByText(account.name);
-      console.log("account", account);
 
       expect(accountNameElement.textContent).toEqual(account.name);
     });
-
-    expect(accountsData.length).toEqual(2);
   });
 });

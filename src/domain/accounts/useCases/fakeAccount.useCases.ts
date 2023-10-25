@@ -1,37 +1,37 @@
-import { IAccountUseCases } from "@domain/accounts/models";
+import { IAccountUseCases, TAccount } from "@domain/accounts/models";
 
+const dbMemmory = [
+  {
+    id: 1,
+    name: "Cristiane Juliana da Costa",
+    email: "cristiane_juliana_dacosta@tintasvalecores.com.br",
+  },
+  {
+    id: 4,
+    name: "Thales Luís André Pinto",
+    email: "tharles_luiz@lojapetline.com.br",
+  },
+];
 export default class FakeAccountUseCases implements IAccountUseCases {
-  private dbContext(account?: any) {
-    const dbMemmory = [
-      {
-        id: 1,
-        name: "Cristiane Juliana da Costa",
-        email: "cristiane_juliana_dacosta@tintasvalecores.com.br",
-      },
-      {
-        id: 4,
-        name: "Thales Luís André Pinto",
-        email: "tharles_luiz@lojapetline.com.br",
-      },
-    ];
+  async get() {
     return dbMemmory;
   }
 
-  async get() {
-    return this.dbContext();
+  post(account: TAccount) {
+    dbMemmory.push(account);
+    return dbMemmory;
   }
 
-  post() {
-    throw new Error("Method not implemented.");
+  update(accountId: number, account: TAccount) {
+    const selectedAccount = dbMemmory.find((account) => account.id === accountId);
+    if (selectedAccount) {
+      selectedAccount.name = account.name;
+      selectedAccount.email = account.email;
+    }
+    return selectedAccount;
   }
-
-  patch() {
-    throw new Error("Method not implemented.");
-  }
-  update() {
-    throw new Error("Method not implemented.");
-  }
-  delete() {
-    throw new Error("Method not implemented.");
+  delete(accountId: number) {
+    const result = dbMemmory.filter((account) => account.id !== accountId);
+    return result;
   }
 }

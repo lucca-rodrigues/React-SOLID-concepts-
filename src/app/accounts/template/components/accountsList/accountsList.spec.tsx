@@ -23,4 +23,22 @@ describe("Accounts list component", () => {
 
     expect(accountsData.length).toEqual(2);
   });
+
+  it("Should be list item", async () => {
+    const accountsData: TAccount[] = await fakeAccountUseCase.get();
+
+    render(<AccountsList accounts={accountsData} />);
+
+    const listItem = await screen.findAllByTestId("account-list-item");
+    expect(listItem.length).toEqual(2);
+
+    const validateFirstItem = listItem[0].innerHTML.includes(accountsData[0].name);
+
+    expect(validateFirstItem).toBeTruthy();
+
+    accountsData.forEach((account: TAccount) => {
+      const accountNameElement = screen.getByText(account.name);
+      expect(accountNameElement.textContent).toEqual(account.name);
+    });
+  });
 });
