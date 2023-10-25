@@ -21,7 +21,7 @@ describe("Fake account useCases", () => {
   it("Should be update account", async () => {
     const accountId = 3;
     const account: TAccount = {
-      name: "João silva",
+      name: "João silva prado",
       email: "joaosilva@email.com",
     };
     const accountData: TAccount | null = await fakeAccountUseCase.update(accountId, account);
