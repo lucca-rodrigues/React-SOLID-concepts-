@@ -2,7 +2,7 @@ import HttpClient from "@infra/httpRequest";
 import { IAccountUseCases } from "@domain/accounts/models";
 
 export default class AccountUseCases implements IAccountUseCases {
-  private baseUrl = "http://localhost:3333/api";
+  private baseUrl = process.env.API_URL ?? "";
 
   async get() {
     const service = new HttpClient(this.baseUrl);
@@ -21,6 +21,6 @@ export default class AccountUseCases implements IAccountUseCases {
     throw new Error("Method not implemented.");
   }
   delete() {
-    throw new Error("Method not implemented.");
+    // throw new Error("Method not implemented.");
   }
 }
