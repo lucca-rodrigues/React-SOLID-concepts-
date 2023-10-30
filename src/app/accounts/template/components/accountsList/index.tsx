@@ -1,10 +1,10 @@
-export default function AccountsList({ accounts }: any) {
+export default function AccountsList({ accountsList }: any) {
   return (
     <>
-      <ul aria-labelledby="account-list">
-        {accounts?.length > 0 ? (
+      <ul aria-labelledby="account-list" style={{ listStyleType: "none" }}>
+        {accountsList?.length > 0 ? (
           <>
-            {accounts?.map((item: any, key: number) => (
+            {accountsList?.map((item: any, key: number) => (
               <li key={key} data-testid="account-list-item">
                 {item?.name}
               </li>

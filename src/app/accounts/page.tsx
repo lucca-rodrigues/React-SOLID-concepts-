@@ -4,7 +4,7 @@ import useAccount from "./hooks/useAccount";
 import TemplatePage from "./template/TemplatePage";
 
 export default function Accounts() {
-  const { getAccounts, accounts } = useAccount();
+  const { getAccounts, accounts, filter, setFilter, accountsList } = useAccount();
 
   useEffect(() => {
     getAccounts();
@@ -12,10 +12,16 @@ export default function Accounts() {
 
   const sharedProps = {
     accounts,
+    filter,
+    setFilter,
+    accountsList,
   };
+
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <h1>Accounts list</h1>
+      <input data-testid="input-search" placeholder="search" onChange={(e: any) => setFilter(e.target.value)} />
+
       <TemplatePage {...sharedProps} />
     </div>
   );

@@ -12,6 +12,14 @@
 - Jest
 - Cypress
 
+## Commands
+
+- `npm run dev` or `yarn test` - Run the project in development mode
+- `npm run test` or `yarn test` - Run the tests
+- `npm run test:watch` or `yarn test:watch` - Run the tests in watch mode
+- `npm run test:e2e` or `yarn test:e2e` - Run the E2E tests with cypress on terminal mode
+- `npm run test:e2e` or `yarn test:e2e` - Run the E2E tests with cypress on terminal mode
+
 ## Architecture
 
 | Folder                       | Description                                                                                                                                  |
@@ -20,7 +28,7 @@
 | src/app                      | Contains the system page and app dynamic routes                                                                                              |
 | src/app/layout               | Contains the shared props, context, components and others...                                                                                 |
 | src/app/pageName/functions   | Contains the page specific functions                                                                                                         |
-| src/app/pageName/hooks       | Contains the page specific hooks and business rules                                                                                          |
+| src/app/pageName/hooks       | Contains the page specific hooks and business ruless                                                                                         |
 | src/app/pageName/template    | Contains the layout renderization and componentes. Here you insert props,hooks, tests and componentes from page                              |
 | src/components               | Contains the components of the project imported from Design System                                                                           |
 | --                           |
