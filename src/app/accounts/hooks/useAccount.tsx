@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
-import { AccountUseCases } from "@domain/accounts";
+import { AccountServices } from "@domain/accounts";
 
 export default function useAccount(props?: any) {
-  const useCase = new AccountUseCases();
+  const service = new AccountServices();
   const [accounts, setAccounts] = useState<any>([]);
 
   async function getAccounts() {
-    const response = await useCase.get();
+    const response = await service.get();
 
     setAccounts(response);
   }

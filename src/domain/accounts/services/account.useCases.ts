@@ -1,7 +1,7 @@
 import HttpClient from "@infra/httpRequest";
-import { IAccountUseCases } from "@domain/accounts/models";
+import { IAccountServices } from "@domain/accounts/models";
 
-export default class AccountUseCases implements IAccountUseCases {
+export default class AccountServices implements IAccountServices {
   private baseUrl = process.env.API_URL ?? "http://localhost:3333/api";
 
   async get() {

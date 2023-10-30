@@ -1,14 +1,14 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import TemplatePage from "./TemplatePage";
-import { FakeAccountUseCases } from "../../../domain/accounts";
+import { FakeAccountServices } from "../../../domain/accounts";
 import { TAccount } from "@domain/accounts/models";
 
-const fakeAccountUseCase = new FakeAccountUseCases();
+const fakeAccountService = new FakeAccountServices();
 
 describe("Accounts Component", () => {
   it("Should be render accounts page", async () => {
-    const accountsData: TAccount[] = await fakeAccountUseCase.get();
+    const accountsData: TAccount[] = await fakeAccountService.get();
 
     const sharedProps = {
       accounts: accountsData,
@@ -27,7 +27,7 @@ describe("Accounts Component", () => {
   });
 
   it("Should display account names", async () => {
-    const accountsData: TAccount[] = await fakeAccountUseCase.get();
+    const accountsData: TAccount[] = await fakeAccountService.get();
 
     render(<TemplatePage accounts={accountsData} />);
 

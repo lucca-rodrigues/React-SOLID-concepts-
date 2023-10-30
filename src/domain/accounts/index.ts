@@ -1,4 +1,4 @@
-import AccountUseCases from "./useCases/account.useCases";
-import FakeAccountUseCases from "./useCases/fakeAccount.useCases";
+import AccountServices from "./services/account.useCases";
+import FakeAccountServices from "./services/fakeAccount.useCases";
 
-export { AccountUseCases, FakeAccountUseCases };
+export { AccountServices, FakeAccountServices };

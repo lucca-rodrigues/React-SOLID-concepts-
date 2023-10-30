@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import AccountsList from ".";
-import { FakeAccountUseCases } from "@domain/accounts";
+import { FakeAccountServices } from "@domain/accounts";
 import { TAccount } from "@domain/accounts/models";
 
-const fakeAccountUseCase = new FakeAccountUseCases();
+const fakeAccountService = new FakeAccountServices();
 describe("Accounts list component", () => {
   it("Should be render accounts list component", async () => {
     render(<AccountsList accounts={[]} />);
@@ -17,7 +17,7 @@ describe("Accounts list component", () => {
   });
 
   it("Should be render accounts list", async () => {
-    const accountsData: TAccount[] = await fakeAccountUseCase.get();
+    const accountsData: TAccount[] = await fakeAccountService.get();
 
     render(<AccountsList accounts={accountsData} />);
 
@@ -25,7 +25,7 @@ describe("Accounts list component", () => {
   });
 
   it("Should be list item", async () => {
-    const accountsData: TAccount[] = await fakeAccountUseCase.get();
+    const accountsData: TAccount[] = await fakeAccountService.get();
 
     render(<AccountsList accounts={accountsData} />);
 

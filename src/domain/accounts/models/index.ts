@@ -1,4 +1,4 @@
-export interface IAccountUseCases {
+export interface IAccountServices {
   get(): any;
   post(account: TAccount): TAccount[];
   // patch(): any;

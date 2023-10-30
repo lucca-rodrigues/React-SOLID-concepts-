@@ -1,10 +1,10 @@
-import { FakeAccountUseCases } from "..";
+import { FakeAccountServices } from "..";
 import { TAccount } from "@domain/accounts/models";
 
-const fakeAccountUseCase = new FakeAccountUseCases();
+const fakeAccountService = new FakeAccountServices();
 describe("Fake account useCases", () => {
   it("Should be render fake accounts", async () => {
-    const accountsData: TAccount[] = await fakeAccountUseCase.get();
+    const accountsData: TAccount[] = await fakeAccountService.get();
     expect(accountsData.length).toEqual(2);
   });
   it("Should be create account", async () => {
@@ -12,7 +12,7 @@ describe("Fake account useCases", () => {
       name: "João silva",
       email: "joaosilva@email.com",
     };
-    const accountsData: TAccount[] = await fakeAccountUseCase.post(account);
+    const accountsData: TAccount[] = await fakeAccountService.post(account);
 
     expect(accountsData.length).toEqual(3);
     expect(accountsData[2].name).toEqual(account.name);
@@ -24,7 +24,7 @@ describe("Fake account useCases", () => {
       name: "João silva prado",
       email: "joaosilva@email.com",
     };
-    const accountData: TAccount | string = await fakeAccountUseCase.update(accountId, account);
+    const accountData: TAccount | string = await fakeAccountService.update(accountId, account);
 
     if (typeof accountData === "string") {
       throw new Error(accountData);
@@ -40,14 +40,14 @@ describe("Fake account useCases", () => {
       name: "João silva prado",
       email: "joaosilva@email.com",
     };
-    const accountData: TAccount | string = await fakeAccountUseCase.update(accountId, account);
+    const accountData: TAccount | string = await fakeAccountService.update(accountId, account);
 
     expect(accountData).toEqual("ID Not found");
   });
 
   it("Should be delete account", () => {
     const accountId = 3;
-    const accountsData: TAccount[] = fakeAccountUseCase.delete(accountId);
+    const accountsData: TAccount[] = fakeAccountService.delete(accountId);
 
     expect(accountsData.length).toEqual(2);
     expect(accountsData[3]).toBeFalsy();

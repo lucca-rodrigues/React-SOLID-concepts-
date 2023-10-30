@@ -1,4 +1,4 @@
-import { IAccountUseCases, TAccount } from "@domain/accounts/models";
+import { IAccountServices, TAccount } from "@domain/accounts/models";
 
 const dbMemmory = [
   {
@@ -12,7 +12,7 @@ const dbMemmory = [
     email: "tharles_luiz@lojapetline.com.br",
   },
 ];
-export default class FakeAccountUseCases implements IAccountUseCases {
+export default class FakeAccountServices implements IAccountServices {
   async get() {
     return dbMemmory;
   }
