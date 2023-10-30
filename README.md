@@ -20,7 +20,7 @@
 | src/app                      | Contains the system page and app dynamic routes                                                                                              |
 | src/app/layout               | Contains the shared props, context, components and others...                                                                                 |
 | src/app/pageName/functions   | Contains the page specific functions                                                                                                         |
-| src/app/pageName/hooks       | Contains the page specific hooks                                                                                                             |
+| src/app/pageName/hooks       | Contains the page specific hooks and business rules                                                                                          |
 | src/app/pageName/template    | Contains the layout renderization and componentes. Here you insert props,hooks, tests and componentes from page                              |
 | src/components               | Contains the components of the project imported from Design System                                                                           |
 | --                           |
