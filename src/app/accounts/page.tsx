@@ -4,14 +4,13 @@ import useAccount from "./hooks/useAccount";
 import TemplatePage from "./template/TemplatePage";
 
 export default function Accounts() {
-  const { getAccounts, accounts, filter, setFilter, accountsList } = useAccount();
+  const { getAccounts, filter, setFilter, accountsList } = useAccount();
 
   useEffect(() => {
     getAccounts();
   }, []);
 
   const sharedProps = {
-    accounts,
     filter,
     setFilter,
     accountsList,

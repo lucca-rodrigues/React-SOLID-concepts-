@@ -11,14 +11,14 @@ describe("Accounts Component", () => {
     const accountsData: TAccount[] = await fakeAccountService.get();
 
     const sharedProps = {
-      accounts: accountsData,
+      accountsList: accountsData,
     };
 
     render(<TemplatePage {...sharedProps} />);
   });
 
   it("Should be render accounts not found", async () => {
-    render(<TemplatePage accounts={[]} />);
+    render(<TemplatePage accountsList={[]} />);
 
     const notFoundMessage = await screen.findByTestId("account-not-found");
 
@@ -29,7 +29,7 @@ describe("Accounts Component", () => {
   it("Should display account names", async () => {
     const accountsData: TAccount[] = await fakeAccountService.get();
 
-    render(<TemplatePage accounts={accountsData} />);
+    render(<TemplatePage accountsList={accountsData} />);
 
     accountsData.forEach((account: TAccount) => {
       const accountNameElement = screen.getByText(account.name);

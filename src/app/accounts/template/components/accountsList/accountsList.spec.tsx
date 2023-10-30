@@ -6,11 +6,11 @@ import { TAccount } from "@domain/accounts/models";
 const fakeAccountService = new FakeAccountServices();
 describe("Accounts list component", () => {
   it("Should be render accounts list component", async () => {
-    render(<AccountsList accounts={[]} />);
+    render(<AccountsList accountsList={[]} />);
   });
 
   it("Should be render accounts  not found", async () => {
-    render(<AccountsList accounts={[]} />);
+    render(<AccountsList accountsList={[]} />);
 
     const notFoundMessage = await screen.findByTestId("account-not-found");
     expect(notFoundMessage.textContent).toEqual("No accounts found.");
@@ -19,7 +19,7 @@ describe("Accounts list component", () => {
   it("Should be render accounts list", async () => {
     const accountsData: TAccount[] = await fakeAccountService.get();
 
-    render(<AccountsList accounts={accountsData} />);
+    render(<AccountsList accountsList={accountsData} />);
 
     expect(accountsData.length).toEqual(2);
   });
@@ -27,7 +27,7 @@ describe("Accounts list component", () => {
   it("Should be list item", async () => {
     const accountsData: TAccount[] = await fakeAccountService.get();
 
-    render(<AccountsList accounts={accountsData} />);
+    render(<AccountsList accountsList={accountsData} />);
 
     const listItem = await screen.findAllByTestId("account-list-item");
     expect(listItem.length).toEqual(2);

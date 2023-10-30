@@ -36,6 +36,7 @@
     "commitizen": "^4.3.0",
     "cypress": "^13.3.3",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
     "husky": "^8.0.3",
@@ -52,7 +53,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   }
 }
