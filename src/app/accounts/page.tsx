@@ -18,9 +18,6 @@ export default function Accounts() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Accounts list</h1>
-      <input data-testid="input-search" placeholder="search" onChange={(e: any) => setFilter(e.target.value)} />
-
       <TemplatePage {...sharedProps} />
     </div>
   );
