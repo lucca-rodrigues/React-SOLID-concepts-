@@ -15,7 +15,7 @@
     "start:api": "json-server --watch src/infra/fakeApi/db.json --port 3333",
     "start:fakeApi": "json-server --watch src/infra/fakeApi/db.json --port 4444",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
-    "commit": "git-cz"
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "@babel/plugin-proposal-do-expressions": "^7.22.5",
