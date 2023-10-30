@@ -18,7 +18,6 @@
 - `npm run test` or `yarn test` - Run the tests
 - `npm run test:watch` or `yarn test:watch` - Run the tests in watch mode
 - `npm run test:e2e` or `yarn test:e2e` - Run the E2E tests with cypress on terminal mode
-- `npm run test:e2e` or `yarn test:e2e` - Run the E2E tests with cypress on terminal mode
 
 ## Architecture
 
